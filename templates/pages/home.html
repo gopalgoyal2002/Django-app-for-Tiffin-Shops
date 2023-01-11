@@ -1,0 +1,132 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<style>
+    /* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.container {
+  display: flex;
+}
+.right {
+  display: flex;
+  flex: 0 0 200px;
+}
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 0;
+  background: #6EAFF7;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+<div class="container">
+    <img src="{% static 'cover.jpg' %}" alt="Snow" style="width:100%;">
+    {% comment %} <div class="bottom-left">Bottom Left</div>
+    <div class="top-left">Top Left</div>
+    <div class="top-right">Top Right</div>
+    <div class="bottom-right">Bottom Right</div> {% endcomment %}
+    <div class="centered" collapse="black">
+        <h1 style="color:black;">TiffinGhar</h1>
+        <p style="color:black;">What You’ve Been Waiting For</p>
+        <p style="color:black;">TiffinGhar is a subscription box unlike any other. We’ve curated and sourced the best products so you don’t have to. Each month, you’ll receive a new delivery, shipped directly to your door. View our options now.</p>
+
+    </div>
+  </div>
+ 
+
+
+<section class="products" style=" display: flex; flex-wrap: wrap;">
+
+    <!-- It's likely you'll need to link the card somewhere. You could add a button in the info, link the titles, or even wrap the entire card in an <a href="..."> -->
+ {% for products in products %}
+    <div class="product-card" style=" padding: 2%;flex-grow: 1;flex-basis: 16%;display: flex;">
+      <div class="product-image">
+        <img src="{{products.product_image.url}}">
+      </div>
+      <div class="product-info">
+        <h5>{{products.product_title}}</h5>
+        <h6>{{products.product_price}}</h6>
+      </div>
+    </div>
+      {% endfor %}
+
+
+
+{% include 'pages/about.html' %}
+
+{% include 'pages/contact.html' %}
+
+{% endblock %}

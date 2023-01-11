@@ -1,0 +1,34 @@
+{% load static %}
+<style>
+    .container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  
+  img {
+    max-width: 100%;
+    max-height:100%;
+  }
+  
+  .text {
+    font-size: 20px;
+    padding-left: 20px;
+  }
+    </style>
+    <body>
+      <div class="container">
+        <div class="image">
+          <img src="{% static 'cover.jpg' %}">
+        </div>
+        <div class="text" style="color:black;">
+          <h1>The Process</h1>
+          <p>Easy and Hassle Free</p>
+          <p>Wondering how TiffinGhar works?
+             Start out by answering a few simple questions so we can adapt each delivery to your specific needs and preferences. Each month you’ll receive a new and unique box full of surprises, delivered straight to your door. Pick whichever plan you like, discover your favorites and see what works best for you. Sign up today!</p>
+
+
+        </div>
+      </div>
+    </body>
+  </html>
